@@ -27,8 +27,11 @@
     margin-right: auto;
     margin-left: auto;
     opacity: 0;
-}
 
+}
+.btn{
+    padding: 0.5rem 0.8rem;
+}
 .card-img-wrapper:hover .member-icons{
     bottom: 0;
     opacity: 1;

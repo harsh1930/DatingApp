@@ -20,6 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError(error =>{
         if(error){
+       
           switch (error.status){
             case 400:
               if(error.error.errors){
@@ -31,9 +32,10 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
               throw modalStateErrors.flat();
               }
-              else{
+              else {
                 this.toastr.error(error.statusText === "OK" ? "Bad request" : error.statusText, error.status)
               }
+              
               break;
               
               case 401:

@@ -4,4 +4,3 @@ export interface User{
     token : string;
 }
 
-let date
