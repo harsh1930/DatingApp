@@ -23,7 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
        debugger;
           switch (error.status){
             case 400:
-              if(error.error.errors){
+              if(error.error.error){
                const modalStateErrors = [];
                for(const key in error.error.errors){
                if(error.error.errors[key]){
@@ -33,7 +33,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               throw modalStateErrors.flat();
               }
               else {
-                this.toastr.error(error.statusText === "OK" ? "Bad request" : error.statusText, error.status)
+                this.toastr.error(error.statusText === "OK" ? error.error : error.statusText)
               }
               
               break;

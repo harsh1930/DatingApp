@@ -47,7 +47,7 @@ resetFilters(){
   this.loadMembers();
 }
 pageChanged(event : any ){
-  
+  if(this.userParams && this.userParams?.pageNumber !== event.page)
   this.userParams.pageNumber = event.page;
   this.memberService.setUserParams(this.userParams);
   this.loadMembers();
