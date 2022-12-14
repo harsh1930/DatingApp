@@ -1,12 +1,13 @@
-<div class="row">
+<div class="row" >
     <div class="col-4">
-        <div class="">
-
-        </div>
         <div class="card" >
-            <!-- <img src="{{member.photoUrl ||'./assets/user.png'}}" 
-            alt="{{member.knownAs}}" class=" rounded-circle img-responsive" style="width: 12rem; height: 12rem;"> -->
+            <img src="{{member.photoUrl ||'./assets/user.png'}}" 
+            alt="{{member.knownAs}}" class=" rounded-circle img-responsive" style="width: 12rem; height: 12rem;">
             <div class="card-body">
+              <div   class="mb-2" *ngIf="(presenceService.onlineUsers$ | async)?.includes(member.userName)">
+                <i class="class fa fa-user-circle text-success"></i> Online now
+              </div>
+                    
                 <div>
                     <strong>Location</strong>
                     <p>{{member.city}}, {{member.country}}</p>
@@ -51,7 +52,7 @@
                 class="ngx-gallery"></ngx-gallery>
             </tab>
             <tab heading= 'Messages' (selectTab)="onTabActivated($event)">
-                <app-member-messages [messages] = "messages" [username] = "member.userName"></app-member-messages>
+                <app-member-messages  [username] = "member.userName"></app-member-messages>
             </tab>
         </tabset>
     </div>
