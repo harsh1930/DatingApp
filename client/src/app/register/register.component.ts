@@ -35,7 +35,7 @@ this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
       dateOfBirth : ['', Validators.required],
       city : ['', Validators.required],
       country : ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength (8) ]],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength (10) ]],
       confirmPassword: ['', [Validators.required, this.matchValue('password')]]
     })
     this.registerForm.controls.password.valueChanges.subscribe(() => {
